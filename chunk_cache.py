@@ -1,6 +1,7 @@
 import torch
 from transformers import AutoTokenizer
-from qwen2 import Qwen2ModifiedForCausalLM
+from qwen2_turbo import Qwen2TurboForCausalLM
+from qwen2_block_attn import Qwen2BlockAttnForCausalLM
 from typing import List, Optional
 from dataclasses import dataclass
 from tqdm import tqdm
@@ -25,8 +26,10 @@ from llama_index.core.vector_stores import SimpleVectorStore
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-model_name = "path_to_turborag_model" 
-model = Qwen2ModifiedForCausalLM.from_pretrained(model_name, torch_dtype=torch.bfloat16).to(device)
+model_name = "/media/model-space/Qwen2.5-7B-Instruct" 
+# model = Qwen2TurboForCausalLM.from_pretrained(
+model = Qwen2BlockAttnForCausalLM.from_pretrained(
+    model_name, torch_dtype=torch.bfloat16).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 splitter = TokenTextSplitter(
@@ -35,7 +38,7 @@ splitter = TokenTextSplitter(
     chunk_overlap=10
 )
 
-output_path = "chunk_kvcache"
+output_path = "chunk_kvcache_w_positions"
 if not os.path.exists(output_path):
     os.makedirs(output_path)
 
@@ -92,4 +95,4 @@ index = VectorStoreIndex(
     vector_store=vector_store,
 )
 
-index.storage_context.persist(persist_dir='doc_emb')
+index.storage_context.persist(persist_dir='doc_emb_w_positions')
