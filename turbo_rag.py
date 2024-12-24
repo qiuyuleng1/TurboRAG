@@ -61,7 +61,7 @@ parser.add_argument('--embedding_model_name', type=str, help='Embedding model na
 parser.add_argument('--storage_dir', type=str, default='doc_emb', help='Directory where the index storage is located')
 parser.add_argument('--query_file', type=str, default='./questions/query.jsonl', help='Path to the file containing queries')
 parser.add_argument('--num_questions', type=int, default=50, help='Number of questions to process')
-parser.add_argument('--similarity_top_k', type=int, default=20, help='Number of topk most relevant chunks')
+parser.add_argument('--similarity_top_k', type=int, default=4, help='Number of topk most relevant chunks')
 parser.add_argument('--use_flash_attn', action='store_true', help='Use FlashAttention2')
 parser.set_defaults(use_chunk_cache=True)
 args = parser.parse_args()
@@ -71,10 +71,11 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load model and tokenizer globally
 attn_implementation = "flash_attention_2" if args.use_flash_attn else None
-# model = Qwen2ModifiedForCausalLM.from_pretrained(
+model = Qwen2TurboForCausalLM.from_pretrained(
 # model = Qwen2ForCausalLM.from_pretrained(
-model = Qwen2BlockAttnForCausalLM.from_pretrained(
+# model = Qwen2BlockAttnForCausalLM.from_pretrained(
     args.model_name,
+    # torch_dtype=torch.bfloat16,
     attn_implementation=attn_implementation).to(device)
 tokenizer = AutoTokenizer.from_pretrained(args.model_name)
 
@@ -112,29 +113,32 @@ def query_with_kvcache(query_text, use_chunk_cache=True):
             kvcache = torch.load(node.metadata["kvcache_file_path"], weights_only=True)
             # print(f"kvcache shape = {kvcache[0][0].shape}")
             kvcache_list.append(kvcache)
+            chunk_token_count = tokenizer.encode(node.text, return_tensors='pt').to(model.device)
+            chunk_token_count_list.append(len(chunk_token_count[0]))
+            # chunk_token_count_list.append(stack_past_key_values([kvcache]).seen_tokens)
         chunk_list.append(node.text)
-        chunk_token_count = tokenizer.encode(node.text, return_tensors='pt').to(model.device)
-        chunk_token_count_list.append(len(chunk_token_count[0]))
     print(f"chunk_token_count_list = {chunk_token_count_list}, chunk sum (except prefix) = {sum(chunk_token_count_list)}")
 
     query_ids = tokenizer.encode(query_text, return_tensors='pt').to(model.device)
     print(f"query_ids = {len(query_ids[0])}")
-
-    os.environ["CHUNK_TOKEN_COUNT_LIST"] = json.dumps(chunk_token_count_list)
+    if use_chunk_cache:
+        os.environ["CHUNK_TOKEN_COUNT_LIST"] = json.dumps(chunk_token_count_list)
     prompt = qa_to_prompt(chunk_list, query_text)
     input_ids = tokenizer.encode(prompt, return_tensors='pt').to(model.device)
     print(f"input_ids = {len(input_ids[0])}")
     past_kvcache = stack_past_key_values(kvcache_list) if use_chunk_cache else None
+    print(f"type past_kvcache = {type(past_kvcache)}")
     eos_token_ids = [151645,151643]
     outputs = model.generate(
         input_ids,
-        max_new_tokens=200,
+        max_new_tokens=100,
         past_key_values=past_kvcache,
         pad_token_id=tokenizer.eos_token_id,
-        do_sample=True,
+        # do_sample=True,
+        do_sample=False,    # 我不想要随机性
         eos_token_id=eos_token_ids,
-        temperature = 0.1,
-        top_p = 0.9,
+        # temperature = 0.1,
+        # top_p = 0.9,
     )
 
     generated_ids = [
@@ -178,16 +182,16 @@ if __name__ == "__main__":
     use_time = end - start
     avg_time_with_reordered_positions_cache = use_time / len(questions)
     
-    # # Test the average time taken for RAG without document chunk KV Cache
-    # os.environ["USE_CHUNK_CACHE"] = "false"
-    # print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
-    # results_without_kvcache = {}
-    # start = time.perf_counter()
-    # for query in questions:
-    #     results_without_kvcache[query] = query_with_kvcache(query, use_chunk_cache=False)
-    # end = time.perf_counter()
-    # use_time_without_cache = end - start
-    # avg_time_without_cache = use_time_without_cache / len(questions)
+    # Test the average time taken for RAG without document chunk KV Cache
+    os.environ["USE_CHUNK_CACHE"] = "false"
+    print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
+    results_without_kvcache = {}
+    start = time.perf_counter()
+    for query in questions:
+        results_without_kvcache[query] = query_with_kvcache(query, use_chunk_cache=False)
+    end = time.perf_counter()
+    use_time_without_cache = end - start
+    avg_time_without_cache = use_time_without_cache / len(questions)
 
     # # Test loss of reverse RoPE
     # os.environ["USE_CHUNK_CACHE"] = "test_reverse_RoPE"
@@ -211,5 +215,5 @@ if __name__ == "__main__":
     # # Print the results in a table format
     # print(tabulate(results, headers=["Method", "Average Time"], tablefmt="grid"))
 
-    # for query in results_with_composite_kvcache.keys():
-    #     print(f"{query}\nWith composite Cache:{results_with_composite_kvcache[query]}\n With reordered Cache:{results_with_reordered_kvcache[query]}\n Without Turbo Cache:{results_without_kvcache[query]}\n Without test KV Cache:{results_without_test_kvcache[query]}\n \n")
+    for query in results_with_composite_kvcache.keys():
+        print(f"{query}\nWith composite Cache:{results_with_composite_kvcache[query]}\n With reordered Cache:{results_with_reordered_kvcache[query]}\n Without Turbo Cache:{results_without_kvcache[query]}\n Without test KV Cache:{results_without_test_kvcache[query]}\n \n")

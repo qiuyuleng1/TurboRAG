@@ -34,7 +34,7 @@ def apply_single_reverse_rotary_pos_emb(inputs, cos, sin, position_ids, unsqueez
 def gen_chunk_position_ids(seen_tokens: int):
     # lengths = [88, 524, 62, 524, 524, 426, 311, 80, 499, 522, 524] for test
     lengths = json.loads(os.environ.get("CHUNK_TOKEN_COUNT_LIST"))
-    print(f"lengths = {lengths}")
+    # print(f"lengths = {lengths}")
     chunk_position_ids = []
     current_sum = 0
     for length in lengths:
@@ -64,7 +64,9 @@ class Qwen2BlockAttnSdpaAttention(Qwen2Attention):
         use_cache: bool = False,
         **kwargs,
     ) -> Tuple[torch.Tensor, Optional[torch.Tensor], Optional[Tuple[torch.Tensor]]]:
+        print("I am block sdpa attn.")
         # print(f"position_ids = {position_ids}")
+        # print(f"past_key_value.seen_tokens = {past_key_value.seen_tokens}")
         if "padding_mask" in kwargs:
             warnings.warn(
                 "Passing `padding_mask` is deprecated and will be removed in v4.37. Please make sure use `attention_mask` instead.`"
@@ -119,8 +121,18 @@ class Qwen2BlockAttnSdpaAttention(Qwen2Attention):
                     0, past_key_value.seen_tokens, dtype=torch.long, device=query_states.device
                 )
             full_position_ids = full_position_ids.unsqueeze(0)
-            key_states = apply_single_reverse_rotary_pos_emb(key_states, cos, sin, full_position_ids)
-            key_states = apply_single_rotary_pos_emb(key_states, cos, sin, full_position_ids)
+            key_states1 = apply_single_reverse_rotary_pos_emb(key_states, cos, sin, full_position_ids)
+            key_states2 = apply_single_rotary_pos_emb(key_states1, cos, sin, full_position_ids)
+            print(f"type k cache = {key_states1[0][0].dtype}")
+            if torch.allclose(key_states, key_states2, atol=1e-6):
+                print("key_states and key_states2 are approximately equal.")
+                pass
+            else:
+                diff = torch.abs(key_states - key_states2)
+                max_diff = torch.max(diff)
+                print(f"Maximum difference: {max_diff}")
+                print("key_states and key_states2 are NOT approximately equal.")
+            key_states = key_states2
         
 
         # repeat k/v heads if n_kv_heads < n_heads
