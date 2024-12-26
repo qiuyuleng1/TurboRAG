@@ -71,11 +71,11 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load model and tokenizer globally
 attn_implementation = "flash_attention_2" if args.use_flash_attn else None
-model = Qwen2TurboForCausalLM.from_pretrained(
+# model = Qwen2TurboForCausalLM.from_pretrained(
 # model = Qwen2ForCausalLM.from_pretrained(
-# model = Qwen2BlockAttnForCausalLM.from_pretrained(
+model = Qwen2BlockAttnForCausalLM.from_pretrained(
     args.model_name,
-    # torch_dtype=torch.bfloat16,
+    torch_dtype=torch.bfloat16,
     attn_implementation=attn_implementation).to(device)
 tokenizer = AutoTokenizer.from_pretrained(args.model_name)
 
@@ -108,6 +108,7 @@ def query_with_kvcache(query_text, use_chunk_cache=True):
     chunk_token_count_list = [len(prefix_ids[0])]
     # chunk_token_count_list = []
     for node_with_score in retrieved_nodes:
+    # for node_with_score in list(reversed(retrieved_nodes)):
         node = node_with_score.node  
         if use_chunk_cache:
             kvcache = torch.load(node.metadata["kvcache_file_path"], weights_only=True)
@@ -171,38 +172,38 @@ if __name__ == "__main__":
     # use_time = end - start
     # avg_time_with_composite_positions_cache = use_time / len(questions)
 
-    # Test the average time taken for RAG with document reordered_positions KV Cache
-    os.environ["USE_CHUNK_CACHE"] = "reordered_positions"
-    print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
-    results_with_reordered_kvcache = {}
-    start = time.perf_counter()
-    for query in questions:
-        results_with_reordered_kvcache[query] = query_with_kvcache(query)
-    end = time.perf_counter()
-    use_time = end - start
-    avg_time_with_reordered_positions_cache = use_time / len(questions)
-    
-    # Test the average time taken for RAG without document chunk KV Cache
-    os.environ["USE_CHUNK_CACHE"] = "false"
-    print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
-    results_without_kvcache = {}
-    start = time.perf_counter()
-    for query in questions:
-        results_without_kvcache[query] = query_with_kvcache(query, use_chunk_cache=False)
-    end = time.perf_counter()
-    use_time_without_cache = end - start
-    avg_time_without_cache = use_time_without_cache / len(questions)
-
-    # # Test loss of reverse RoPE
-    # os.environ["USE_CHUNK_CACHE"] = "test_reverse_RoPE"
+    # # Test the average time taken for RAG with document reordered_positions KV Cache
+    # os.environ["USE_CHUNK_CACHE"] = "reordered_positions"
     # print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
-    # results_without_test_kvcache = {}
+    # results_with_reordered_kvcache = {}
     # start = time.perf_counter()
     # for query in questions:
-    #     results_without_test_kvcache[query] = query_with_kvcache(query, use_chunk_cache=False)
+    #     results_with_reordered_kvcache[query] = query_with_kvcache(query)
+    # end = time.perf_counter()
+    # use_time = end - start
+    # avg_time_with_reordered_positions_cache = use_time / len(questions)
+    
+    # # Test the average time taken for RAG without document chunk KV Cache
+    # os.environ["USE_CHUNK_CACHE"] = "false"
+    # print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
+    # results_without_kvcache = {}
+    # start = time.perf_counter()
+    # for query in questions:
+    #     results_without_kvcache[query] = query_with_kvcache(query, use_chunk_cache=False)
     # end = time.perf_counter()
     # use_time_without_cache = end - start
-    # avg_time_without_cache_test_reverse_RoPE = use_time_without_cache / len(questions)
+    # avg_time_without_cache = use_time_without_cache / len(questions)
+
+    # Test loss of reverse RoPE
+    os.environ["USE_CHUNK_CACHE"] = "test_reverse_RoPE"
+    print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
+    results_without_test_kvcache = {}
+    start = time.perf_counter()
+    for query in questions:
+        results_without_test_kvcache[query] = query_with_kvcache(query, use_chunk_cache=False)
+    end = time.perf_counter()
+    use_time_without_cache = end - start
+    avg_time_without_cache_test_reverse_RoPE = use_time_without_cache / len(questions)
 
     # # Prepare data for tabular output
     # results = [
@@ -215,5 +216,5 @@ if __name__ == "__main__":
     # # Print the results in a table format
     # print(tabulate(results, headers=["Method", "Average Time"], tablefmt="grid"))
 
-    for query in results_with_composite_kvcache.keys():
-        print(f"{query}\nWith composite Cache:{results_with_composite_kvcache[query]}\n With reordered Cache:{results_with_reordered_kvcache[query]}\n Without Turbo Cache:{results_without_kvcache[query]}\n Without test KV Cache:{results_without_test_kvcache[query]}\n \n")
+    # for query in results_with_composite_kvcache.keys():
+    #     print(f"{query}\nWith composite Cache:{results_with_composite_kvcache[query]}\n With reordered Cache:{results_with_reordered_kvcache[query]}\n Without Turbo Cache:{results_without_kvcache[query]}\n Without test KV Cache:{results_without_test_kvcache[query]}\n \n")

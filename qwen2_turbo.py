@@ -34,7 +34,7 @@ class Qwen2TurboSdpaAttention(Qwen2Attention):
         use_cache: bool = False,
         **kwargs,
     ) -> Tuple[torch.Tensor, Optional[torch.Tensor], Optional[Tuple[torch.Tensor]]]:
-        print("I am turbo sdpa attn.")
+        # print("I am turbo sdpa attn.")
         if "padding_mask" in kwargs:
             warnings.warn(
                 "Passing `padding_mask` is deprecated and will be removed in v4.37. Please make sure use `attention_mask` instead.`"

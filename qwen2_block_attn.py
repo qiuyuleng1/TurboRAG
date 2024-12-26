@@ -20,15 +20,26 @@ from transformers.models.qwen2.modeling_qwen2 import Qwen2RotaryEmbedding  # Imp
 from typing import Optional, Tuple, Union
 
 def apply_single_rotary_pos_emb(inputs, cos, sin, position_ids, unsqueeze_dim=1):
+    is_bf16 = inputs.dtype == torch.bfloat16
+    if is_bf16 and os.environ.get("USE_CHUNK_CACHE") in {"reordered_positions", "test_reverse_RoPE"}:
+        inputs = inputs.to(torch.float32)
     cos = cos[position_ids].unsqueeze(unsqueeze_dim)
     sin = sin[position_ids].unsqueeze(unsqueeze_dim)
     embed = (inputs * cos) + (rotate_half(inputs) * sin)
+    if is_bf16 and os.environ.get("USE_CHUNK_CACHE") in {"reordered_positions", "test_reverse_RoPE"}:
+        embed = embed.to(torch.bfloat16)
     return embed
 
 def apply_single_reverse_rotary_pos_emb(inputs, cos, sin, position_ids, unsqueeze_dim=1):
+    # Check if inputs are in bf16 and convert to fp32 if necessary
+    is_bf16 = inputs.dtype == torch.bfloat16
+    if is_bf16 and os.environ.get("USE_CHUNK_CACHE") in {"reordered_positions", "test_reverse_RoPE"}:
+        inputs = inputs.to(torch.float32)
     cos = cos[position_ids].unsqueeze(unsqueeze_dim)
     sin = -1 * sin[position_ids].unsqueeze(unsqueeze_dim)
     embed = (inputs * cos) + (rotate_half(inputs) * sin)
+    if is_bf16 and os.environ.get("USE_CHUNK_CACHE") in {"reordered_positions", "test_reverse_RoPE"}:
+        embed = embed.to(torch.bfloat16)
     return embed
 
 def gen_chunk_position_ids(seen_tokens: int):
@@ -64,7 +75,7 @@ class Qwen2BlockAttnSdpaAttention(Qwen2Attention):
         use_cache: bool = False,
         **kwargs,
     ) -> Tuple[torch.Tensor, Optional[torch.Tensor], Optional[Tuple[torch.Tensor]]]:
-        print("I am block sdpa attn.")
+        # print("I am block sdpa attn.")
         # print(f"position_ids = {position_ids}")
         # print(f"past_key_value.seen_tokens = {past_key_value.seen_tokens}")
         if "padding_mask" in kwargs:
@@ -129,8 +140,19 @@ class Qwen2BlockAttnSdpaAttention(Qwen2Attention):
                 pass
             else:
                 diff = torch.abs(key_states - key_states2)
-                max_diff = torch.max(diff)
-                print(f"Maximum difference: {max_diff}")
+
+                flat_diff = diff.flatten()
+                flat_denominator = (torch.abs(key_states) + 1e-6).flatten()  # Prevent division by zero.
+                flat_relative_diff = flat_diff / flat_denominator
+
+                topk_values, topk_indices = torch.topk(flat_relative_diff, k=3)
+                topk_numerators = flat_diff[topk_indices]
+                topk_denominators = flat_denominator[topk_indices] 
+
+                print(f"Top 3 relative differences: {topk_values}")
+                print(f"Corresponding numerators (diff): {topk_numerators}")
+                print(f"Corresponding denominators (abs(key_states) + 1e-6): {topk_denominators}")
+                
                 print("key_states and key_states2 are NOT approximately equal.")
             key_states = key_states2
         

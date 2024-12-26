@@ -27,8 +27,8 @@ from llama_index.core.vector_stores import SimpleVectorStore
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 model_name = "/media/model-space/Qwen2.5-7B-Instruct" 
-model = Qwen2TurboForCausalLM.from_pretrained(
-# model = Qwen2BlockAttnForCausalLM.from_pretrained(
+# model = Qwen2TurboForCausalLM.from_pretrained(
+model = Qwen2BlockAttnForCausalLM.from_pretrained(
     model_name, torch_dtype=torch.bfloat16).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
@@ -38,7 +38,7 @@ splitter = TokenTextSplitter(
     chunk_overlap=10
 )
 
-output_path = "chunk_kvcache_wo_positions"
+output_path = "short_chunk_kvcache_w_positions"
 if not os.path.exists(output_path):
     os.makedirs(output_path)
 
@@ -86,7 +86,7 @@ embed_model = HuggingFaceEmbedding(
 
 vector_store = SimpleVectorStore()
 node_parser = KVCachedNodeParser()
-documents = SimpleDirectoryReader('documents').load_data()
+documents = SimpleDirectoryReader('short_documents').load_data()
 nodes = node_parser.get_nodes_from_documents(documents)
 
 index = VectorStoreIndex(
@@ -95,4 +95,4 @@ index = VectorStoreIndex(
     vector_store=vector_store,
 )
 
-index.storage_context.persist(persist_dir='doc_emb_wo_positions')
+index.storage_context.persist(persist_dir='short_doc_emb_w_positions')
