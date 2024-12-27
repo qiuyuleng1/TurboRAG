@@ -1,0 +1,257 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.81it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.83it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.73it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.80it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.79it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+INFO:sentence_transformers.SentenceTransformer:2 prompts are loaded, with the keys: ['query', 'text']
+2 prompts are loaded, with the keys: ['query', 'text']
+INFO:llama_index.core.indices.loading:Loading all indices.
+Loading all indices.
+USE_CHUNK_CACHE=composite_positions
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.12it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.11it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 522, 524, 524, 190, 199, 426, 145, 86, 517], chunk sum (except prefix) = 3745
+query_ids = 11
+chunk_str_ids = 3745
+input_ids = 3762
+query:Who is the music director of the Quebec Symphony Orchestra?
+outputs:The document provided does not specify the current music director of the Quebec Symphony Orchestra. However, it mentions that Fabien Gabel, who is described as the Director of the Quebec Symphony Orchestra, is collaborating with the San Francisco Symphony Orchestra for a Beethoven project. Given the context, it is reasonable to infer that Fabien Gabel is likely the music director of the Quebec Symphony Orchestra, though this would need to be confirmed from an official source.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  9.14it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  9.11it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 427, 444, 257, 353, 287, 523, 425, 467, 522, 524], chunk sum (except prefix) = 4317
+query_ids = 17
+chunk_str_ids = 4317
+input_ids = 4340
+query:Who were the four students of the University of Port Harcourt that were allegedly murdered?
+outputs:There seems to be a misunderstanding in the question. The document mentions that four students from the University of Port Harcourt were not murdered. Instead, it talks about four students from the University of Port Harcourt who were not directly mentioned in the text. The document discusses the murder of four students from the Marjory Stoneman Douglas High School in Parkland, Florida, USA, not the University of Port Harcourt. The four students mentioned in the context of the document are Chiadika Lordson, Ugonna Kelechi Obusor, Mike Lloyd Toku, and Tekena Elkanah. They were victims of a mass shooting at Marjory Stoneman Douglas High School.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  9.62it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  9.60it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 525, 522, 343, 178, 480, 119, 523, 221, 198], chunk sum (except prefix) = 3721
+query_ids = 14
+chunk_str_ids = 3721
+input_ids = 3741
+query:What did Paul Wall offer to all U.S. Olympic Medalists?
+outputs:Paul Wall offered to give free gold grills to all U.S. Olympic Medalists.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 95.71it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 419, 524, 524, 524, 318, 187, 524, 236, 523, 524], chunk sum (except prefix) = 4391
+query_ids = 17
+chunk_str_ids = 4391
+input_ids = 4414
+query:What are the main agricultural products that African countries export to the rest of the world?
+outputs:Based on the information provided in the document, the main agricultural products that African countries export to the rest of the world include cocoa, edible fruit and nuts, coffee, and tea. The document mentions that "African countries mainly export cocoa, edible fruit and nuts, coffee and tea to the rest of the world."
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 12.19it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 523, 524, 173, 125, 423, 524, 301, 452, 521, 383], chunk sum (except prefix) = 4037
+query_ids = 24
+chunk_str_ids = 4037
+input_ids = 4067
+query:What is the main goal of the CHI 2011 workshop on large interactive displays in public urban contexts?
+outputs:The main goal of the CHI 2011 workshop on large interactive displays in public urban contexts is to cross-fertilize insights from different disciplines to establish a more general understanding of large display installations in urban spaces. The workshop aims to develop an agenda for future research directions in this area by focusing on topics such as designing engaging and effective large display installations, understanding how different interaction methods shape user experience, and evaluating the impact of these installations.
+USE_CHUNK_CACHE=reordered_positions
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 40.78it/s]
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 522, 524, 524, 190, 199, 426, 145, 86, 517], chunk sum (except prefix) = 3745
+query_ids = 11
+chunk_str_ids = 3745
+input_ids = 3762
+query:Who is the music director of the Quebec Symphony Orchestra?
+outputs:The given text does not provide information about the music director of the Quebec Symphony Orchestra. Instead, it mentions that Fabien Gabel is the music director of the Quebec Symphony Orchestra and that he is returning to conduct the Houston Symphony in a Beethoven festival. Therefore, based on the provided information, the question cannot be answered accurately.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 99.17it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 427, 444, 257, 353, 287, 523, 425, 467, 522, 524], chunk sum (except prefix) = 4317
+query_ids = 17
+chunk_str_ids = 4317
+input_ids = 4340
+query:Who were the four students of the University of Port Harcourt that were allegedly murdered?
+outputs:There seems to be a misunderstanding in the question. The document mentions that four students from the University of Port Harcourt were not involved in the described incidents. Instead, the document discusses the murder of four students from the University of Port Harcourt, but it actually refers to four students from the University of Port Harcourt being victims of a crime, not perpetrators. The passage states:
+
+"The accused on Oct. 5, allegedly murdered Chiadika Lordson, Ugonna Kelechi Obusor, Mike Lloyd Toku and Tekena Elkanah."
+
+These four individuals were the victims of the alleged murders, not students of the University of Port Harcourt. The document does not mention any students from the University of Port Harcourt as perpetrators or victims.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 12.54it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 525, 522, 343, 178, 480, 119, 523, 221, 198], chunk sum (except prefix) = 3721
+query_ids = 14
+chunk_str_ids = 3721
+input_ids = 3741
+query:What did Paul Wall offer to all U.S. Olympic Medalists?
+outputs:Paul Wall offered to give free gold grills to all U.S. Olympic Medalists.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 38.97it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 419, 524, 524, 524, 318, 187, 524, 236, 523, 524], chunk sum (except prefix) = 4391
+query_ids = 17
+chunk_str_ids = 4391
+input_ids = 4414
+query:What are the main agricultural products that African countries export to the rest of the world?
+outputs:According to the document, African countries mainly export the following agricultural products to the rest of the world:
+
+- Cocoa
+- Edible fruit and nuts
+- Coffee 
+- Tea
+- Vegetables
+
+These are mentioned as the main agricultural exports from Africa to other countries, based on the information provided.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 83.62it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 523, 524, 173, 125, 423, 524, 301, 452, 521, 383], chunk sum (except prefix) = 4037
+query_ids = 24
+chunk_str_ids = 4037
+input_ids = 4067
+query:What is the main goal of the CHI 2011 workshop on large interactive displays in public urban contexts?
+outputs:The main goal of the CHI 2011 workshop on large interactive displays in public urban contexts is to provide a platform for researchers and practitioners from various disciplines to exchange insights on designing and evaluating large interactive displays in public urban settings. Specifically, the workshop aims to:
+
+1. Cross-fertilize insights from different disciplines such as art, architecture, design, HCI, social sciences, and media theory.
+2. Establish a more general understanding of large interactive displays in public urban contexts.
+3. Develop an agenda for future research directions in this area.
+
+The workshop focuses on topics such as designing engaging experiences, the impact of different interaction methods, and evaluation methods for large display installations in urban spaces.
+USE_CHUNK_CACHE=false
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 11.79it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 522, 524, 524, 190, 199, 426, 145, 86, 517], chunk sum (except prefix) = 3745
+query_ids = 11
+chunk_str_ids = 3745
+input_ids = 3762
+query:Who is the music director of the Quebec Symphony Orchestra?
+outputs:The document states that Fabien Gabel is the music director of the Quebec Symphony Orchestra. However, the specific context provided in the document is about Fabien Gabel's return to lead the Houston Symphony, not the Quebec Symphony Orchestra. There is no direct mention of the current music director of the Quebec Symphony Orchestra in the given text.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 89.22it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 427, 444, 257, 353, 287, 523, 425, 467, 522, 524], chunk sum (except prefix) = 4317
+query_ids = 17
+chunk_str_ids = 4317
+input_ids = 4340
+query:Who were the four students of the University of Port Harcourt that were allegedly murdered?
+outputs:The four students of the University of Port Harcourt that were allegedly murdered are Chiadika Lordson, Ugonna Kelechi Obusor, Mike Lloyd Toku, and Tekena Elkanah.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 12.86it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 525, 522, 343, 178, 480, 119, 523, 221, 198], chunk sum (except prefix) = 3721
+query_ids = 14
+chunk_str_ids = 3721
+input_ids = 3741
+query:What did Paul Wall offer to all U.S. Olympic Medalists?
+outputs:Paul Wall offered to give free gold grills to all U.S. Olympic Medalists.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 97.05it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 419, 524, 524, 524, 318, 187, 524, 236, 523, 524], chunk sum (except prefix) = 4391
+query_ids = 17
+chunk_str_ids = 4391
+input_ids = 4414
+query:What are the main agricultural products that African countries export to the rest of the world?
+outputs:The main agricultural products that African countries export to the rest of the world are cocoa, edible fruit and nuts, coffee and tea, and vegetables.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 12.53it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 523, 524, 173, 125, 423, 524, 301, 452, 521, 383], chunk sum (except prefix) = 4037
+query_ids = 24
+chunk_str_ids = 4037
+input_ids = 4067
+query:What is the main goal of the CHI 2011 workshop on large interactive displays in public urban contexts?
+outputs:The main goal of the CHI 2011 workshop on large interactive displays in public urban contexts is to cross-fertilize insights from different disciplines, to establish a more general understanding of large interactive displays in public urban contexts, and to develop an agenda for future research directions in this area.
+USE_CHUNK_CACHE=test_reverse_RoPE
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.97it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 522, 524, 524, 190, 199, 426, 145, 86, 517], chunk sum (except prefix) = 3745
+query_ids = 11
+chunk_str_ids = 3745
+input_ids = 3762
+query:Who is the music director of the Quebec Symphony Orchestra?
+outputs:The document states that Fabien Gabel is the music director of the Quebec Symphony Orchestra. However, the specific context provided in the document is about Fabien Gabel's return to lead the Houston Symphony, not directly about his role as the music director of the Quebec Symphony Orchestra. Given the information provided, we cannot definitively confirm his role as the music director of the Quebec Symphony Orchestra from this document alone. But based on the limited information given, it suggests he has connections to the Quebec Symphony Orchestra.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 14.45it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 427, 444, 257, 353, 287, 523, 425, 467, 522, 524], chunk sum (except prefix) = 4317
+query_ids = 17
+chunk_str_ids = 4317
+input_ids = 4340
+query:Who were the four students of the University of Port Harcourt that were allegedly murdered?
+outputs:The four students of the University of Port Harcourt that were allegedly murdered are Chiadika Lordson, Ugonna Kelechi Obusor, Mike Lloyd Toku, and Tekena Elkanah.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 14.01it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 525, 522, 343, 178, 480, 119, 523, 221, 198], chunk sum (except prefix) = 3721
+query_ids = 14
+chunk_str_ids = 3721
+input_ids = 3741
+query:What did Paul Wall offer to all U.S. Olympic Medalists?
+outputs:Paul Wall offered to give free gold grills to all U.S. Olympic Medalists.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 95.73it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 419, 524, 524, 524, 318, 187, 524, 236, 523, 524], chunk sum (except prefix) = 4391
+query_ids = 17
+chunk_str_ids = 4391
+input_ids = 4414
+query:What are the main agricultural products that African countries export to the rest of the world?
+outputs:The main agricultural products that African countries export to the rest of the world are cocoa, edible fruit and nuts, coffee and tea, and vegetables.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 93.04it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 523, 524, 173, 125, 423, 524, 301, 452, 521, 383], chunk sum (except prefix) = 4037
+query_ids = 24
+chunk_str_ids = 4037
+input_ids = 4067
+query:What is the main goal of the CHI 2011 workshop on large interactive displays in public urban contexts?
+outputs:The main goal of the CHI 2011 workshop on large interactive displays in public urban contexts is to cross-fertilize insights from different disciplines, to establish a more general understanding of large interactive displays in public urban contexts, and to develop an agenda for future research directions in this area.
++------------------------------------+-------------------+
+| Method                             | Average Time      |
++====================================+===================+
+| With Composite Positions KV Cache  | 44.897765 seconds |
++------------------------------------+-------------------+
+| With Reordered Positions KV Cache  | 55.688820 seconds |
++------------------------------------+-------------------+
+| Without KV Cache                   | 50.137717 seconds |
++------------------------------------+-------------------+
+| Without KV Cache test reverse RoPE | 56.703486 seconds |
++------------------------------------+-------------------+
+Who is the music director of the Quebec Symphony Orchestra?
+With composite Cache:The document provided does not specify the current music director of the Quebec Symphony Orchestra. However, it mentions that Fabien Gabel, who is described as the Director of the Quebec Symphony Orchestra, is collaborating with the San Francisco Symphony Orchestra for a Beethoven project. Given the context, it is reasonable to infer that Fabien Gabel is likely the music director of the Quebec Symphony Orchestra, though this would need to be confirmed from an official source.
+ With reordered Cache:The given text does not provide information about the music director of the Quebec Symphony Orchestra. Instead, it mentions that Fabien Gabel is the music director of the Quebec Symphony Orchestra and that he is returning to conduct the Houston Symphony in a Beethoven festival. Therefore, based on the provided information, the question cannot be answered accurately.
+ Without Turbo Cache:The document states that Fabien Gabel is the music director of the Quebec Symphony Orchestra. However, the specific context provided in the document is about Fabien Gabel's return to lead the Houston Symphony, not the Quebec Symphony Orchestra. There is no direct mention of the current music director of the Quebec Symphony Orchestra in the given text.
+ Without test KV Cache:The document states that Fabien Gabel is the music director of the Quebec Symphony Orchestra. However, the specific context provided in the document is about Fabien Gabel's return to lead the Houston Symphony, not directly about his role as the music director of the Quebec Symphony Orchestra. Given the information provided, we cannot definitively confirm his role as the music director of the Quebec Symphony Orchestra from this document alone. But based on the limited information given, it suggests he has connections to the Quebec Symphony Orchestra.
+ 
+
+Who were the four students of the University of Port Harcourt that were allegedly murdered?
+With composite Cache:There seems to be a misunderstanding in the question. The document mentions that four students from the University of Port Harcourt were not murdered. Instead, it talks about four students from the University of Port Harcourt who were not directly mentioned in the text. The document discusses the murder of four students from the Marjory Stoneman Douglas High School in Parkland, Florida, USA, not the University of Port Harcourt. The four students mentioned in the context of the document are Chiadika Lordson, Ugonna Kelechi Obusor, Mike Lloyd Toku, and Tekena Elkanah. They were victims of a mass shooting at Marjory Stoneman Douglas High School.
+ With reordered Cache:There seems to be a misunderstanding in the question. The document mentions that four students from the University of Port Harcourt were not involved in the described incidents. Instead, the document discusses the murder of four students from the University of Port Harcourt, but it actually refers to four students from the University of Port Harcourt being victims of a crime, not perpetrators. The passage states:
+
+"The accused on Oct. 5, allegedly murdered Chiadika Lordson, Ugonna Kelechi Obusor, Mike Lloyd Toku and Tekena Elkanah."
+
+These four individuals were the victims of the alleged murders, not students of the University of Port Harcourt. The document does not mention any students from the University of Port Harcourt as perpetrators or victims.
+ Without Turbo Cache:The four students of the University of Port Harcourt that were allegedly murdered are Chiadika Lordson, Ugonna Kelechi Obusor, Mike Lloyd Toku, and Tekena Elkanah.
+ Without test KV Cache:The four students of the University of Port Harcourt that were allegedly murdered are Chiadika Lordson, Ugonna Kelechi Obusor, Mike Lloyd Toku, and Tekena Elkanah.
+ 
+
+What did Paul Wall offer to all U.S. Olympic Medalists?
+With composite Cache:Paul Wall offered to give free gold grills to all U.S. Olympic Medalists.
+ With reordered Cache:Paul Wall offered to give free gold grills to all U.S. Olympic Medalists.
+ Without Turbo Cache:Paul Wall offered to give free gold grills to all U.S. Olympic Medalists.
+ Without test KV Cache:Paul Wall offered to give free gold grills to all U.S. Olympic Medalists.
+ 
+
+What are the main agricultural products that African countries export to the rest of the world?
+With composite Cache:Based on the information provided in the document, the main agricultural products that African countries export to the rest of the world include cocoa, edible fruit and nuts, coffee, and tea. The document mentions that "African countries mainly export cocoa, edible fruit and nuts, coffee and tea to the rest of the world."
+ With reordered Cache:According to the document, African countries mainly export the following agricultural products to the rest of the world:
+
+- Cocoa
+- Edible fruit and nuts
+- Coffee 
+- Tea
+- Vegetables
+
+These are mentioned as the main agricultural exports from Africa to other countries, based on the information provided.
+ Without Turbo Cache:The main agricultural products that African countries export to the rest of the world are cocoa, edible fruit and nuts, coffee and tea, and vegetables.
+ Without test KV Cache:The main agricultural products that African countries export to the rest of the world are cocoa, edible fruit and nuts, coffee and tea, and vegetables.
+ 
+
+What is the main goal of the CHI 2011 workshop on large interactive displays in public urban contexts?
+With composite Cache:The main goal of the CHI 2011 workshop on large interactive displays in public urban contexts is to cross-fertilize insights from different disciplines to establish a more general understanding of large display installations in urban spaces. The workshop aims to develop an agenda for future research directions in this area by focusing on topics such as designing engaging and effective large display installations, understanding how different interaction methods shape user experience, and evaluating the impact of these installations.
+ With reordered Cache:The main goal of the CHI 2011 workshop on large interactive displays in public urban contexts is to provide a platform for researchers and practitioners from various disciplines to exchange insights on designing and evaluating large interactive displays in public urban settings. Specifically, the workshop aims to:
+
+1. Cross-fertilize insights from different disciplines such as art, architecture, design, HCI, social sciences, and media theory.
+2. Establish a more general understanding of large interactive displays in public urban contexts.
+3. Develop an agenda for future research directions in this area.
+
+The workshop focuses on topics such as designing engaging experiences, the impact of different interaction methods, and evaluation methods for large display installations in urban spaces.
+ Without Turbo Cache:The main goal of the CHI 2011 workshop on large interactive displays in public urban contexts is to cross-fertilize insights from different disciplines, to establish a more general understanding of large interactive displays in public urban contexts, and to develop an agenda for future research directions in this area.
+ Without test KV Cache:The main goal of the CHI 2011 workshop on large interactive displays in public urban contexts is to cross-fertilize insights from different disciplines, to establish a more general understanding of large interactive displays in public urban contexts, and to develop an agenda for future research directions in this area.
+ 
+

@@ -1,0 +1,38 @@
+Use turbo attn.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  2.40it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  2.53it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  2.59it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.68it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.62it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+INFO:sentence_transformers.SentenceTransformer:2 prompts are loaded, with the keys: ['query', 'text']
+2 prompts are loaded, with the keys: ['query', 'text']
+INFO:llama_index.core.indices.loading:Loading all indices.
+Loading all indices.
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:509: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+USE_CHUNK_CACHE=reordered_positions
+skip retrive!
+prefix_ids len=88
+chunk_token_count_list = [88, 362, 462, 347, 286], chunk sum (with prefix) = 1545
+query_ids = 92
+chunk_str_ids = 1545
+input_ids = 1644
+type past_kvcache = <class 'tuple'>
+query:在这个月光皎洁、云雾缭绕的夜晚，小企鹅正望向天空，全神贯注地数★。请帮助小企鹅收集所数★的颗数，按照如下格式：{"小企鹅":[x,x,x,...]}，不要求和，[x,x,x,...]中数字为小企鹅每次数★的颗数，仅以JSON格式输出结果，不需要输出任何解释。
+outputs:["[15, 117, 42, 69]"]
+USE_CHUNK_CACHE=false
+skip retrive!
+prefix_ids len=88
+chunk_token_count_list = [88], chunk sum (with prefix) = 88
+query_ids = 92
+chunk_str_ids = 1545
+input_ids = 1644
+type past_kvcache = <class 'NoneType'>
+query:在这个月光皎洁、云雾缭绕的夜晚，小企鹅正望向天空，全神贯注地数★。请帮助小企鹅收集所数★的颗数，按照如下格式：{"小企鹅":[x,x,x,...]}，不要求和，[x,x,x,...]中数字为小企鹅每次数★的颗数，仅以JSON格式输出结果，不需要输出任何解释。
+outputs:["小企鹅":[15,117,42,69]]

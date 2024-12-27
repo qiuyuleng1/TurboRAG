@@ -1,0 +1,56 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  2.41it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  2.54it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  2.59it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.69it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.63it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+INFO:sentence_transformers.SentenceTransformer:2 prompts are loaded, with the keys: ['query', 'text']
+2 prompts are loaded, with the keys: ['query', 'text']
+INFO:llama_index.core.indices.loading:Loading all indices.
+Loading all indices.
+USE_CHUNK_CACHE=reordered_positions
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 57.84it/s]
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:509: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+prefix_ids len=88
+chunk_token_count_list = [88, 342, 522, 62, 522, 524, 118], chunk sum (except prefix) = 2178
+query_ids = 12
+chunk_str_ids = 2178
+input_ids = 2196
+type past_kvcache = <class 'tuple'>
+query:How is Shanghai's GDP in 2023?
+outputs:According to the passage, Shanghai's GDP in 2023 is 47,218.66 billion yuan.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 11.13it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 342, 522, 522, 524, 62, 118], chunk sum (except prefix) = 2178
+query_ids = 4
+chunk_str_ids = 2178
+input_ids = 2188
+type past_kvcache = <class 'tuple'>
+query:How is Shanghai?
+outputs:It seems there might be a bit of confusion in your question. The text provided is about the music and career of Paul Wall and some details about a concert featuring him, but it doesn't provide any specific information about Shanghai. If you're asking about the current state or economy of Shanghai based on the given text, the only relevant information is that the text mentions "Shanghai's economy is robust, with a GDP of 47218.66 billion yuan in 202
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  9.75it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  9.74it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 342, 522, 522, 62, 524, 118], chunk sum (except prefix) = 2178
+query_ids = 11
+chunk_str_ids = 2178
+input_ids = 2195
+type past_kvcache = <class 'tuple'>
+query:Pay attention to Shanghai economy. How is Shanghai GDP?
+outputs:Based on the information provided in the given text, the document does not provide any specific details about Shanghai's economy beyond mentioning that it has a GDP of 47218.66 billion yuan in 2023. However, the text emphasizes that Shanghai's economy is robust and that it maintains a leading position among China's economic centers. For more detailed and up-to-date information on Shanghai's current GDP, you would need to refer to recent economic reports or data from official sources
+USE_CHUNK_CACHE=false
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 18.10it/s]
+prefix_ids len=88
+chunk_token_count_list = [88], chunk sum (except prefix) = 88
+query_ids = 12
+chunk_str_ids = 2178
+input_ids = 2196
+type past_kvcache = <class 'NoneType'>
+query:How is Shanghai's GDP in 2023?
+outputs:Shanghai's GDP in 2023 is 47218.66 billion yuan.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 30.99it/s]

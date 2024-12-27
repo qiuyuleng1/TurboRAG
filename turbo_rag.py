@@ -13,6 +13,7 @@ from transformers import AutoTokenizer
 # Llama Index Related
 from llama_index.core import Settings, load_index_from_storage, StorageContext, QueryBundle
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.core.schema import BaseNode, TextNode, NodeWithScore
 
 from transformers.models.qwen2.modeling_qwen2 import (
     Qwen2Attention,
@@ -31,7 +32,39 @@ logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
 PREFIX = '''<|im_start|>system
 You are an accurate and reliable AI assistant that can answer questions with the help of external documents. Please note that external documents may contain noisy information. If the information in the document contains the correct answer, you will give an accurate answer. If the information in the document does not contain the answer, you will generate ’I can not answer the question because of the insufficient information in documents.‘.<|im_end|><|im_start|>user\nDocs:'''
-# PREFIX = "Hi"
+# PREFIX = "Docs:"
+
+def parse_json_to_nodes(json_file_path):
+    with open(json_file_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    nodes_with_scores = []
+    for chunk_key, chunk_data in data["docstore/data"].items():
+        chunk_info = chunk_data["__data__"]
+        
+        # Create TextNode obj
+        text_node = TextNode(
+            id_=chunk_info["id_"],
+            embedding=chunk_info["embedding"],
+            metadata=chunk_info["metadata"],
+            excluded_embed_metadata_keys=chunk_info["excluded_embed_metadata_keys"],
+            excluded_llm_metadata_keys=chunk_info["excluded_llm_metadata_keys"],
+            relationships=chunk_info["relationships"],
+            text=chunk_info["text"],
+            mimetype=chunk_info["mimetype"],
+            start_char_idx=chunk_info["start_char_idx"],
+            end_char_idx=chunk_info["end_char_idx"],
+            text_template=chunk_info["text_template"],
+            metadata_template=chunk_info["metadata_template"],
+            metadata_seperator=chunk_info["metadata_seperator"],
+        )
+        
+        # Create NodeWithScore obj, set score to 0
+        node_with_score = NodeWithScore(node=text_node, score=0)
+        nodes_with_scores.append(node_with_score)
+    
+    return nodes_with_scores
+
 
 def stack_past_key_values(past_key_values_list):
     num_layers = len(past_key_values_list[0])
@@ -63,6 +96,7 @@ parser.add_argument('--query_file', type=str, default='./questions/query.jsonl',
 parser.add_argument('--num_questions', type=int, default=50, help='Number of questions to process')
 parser.add_argument('--similarity_top_k', type=int, default=4, help='Number of topk most relevant chunks')
 parser.add_argument('--use_flash_attn', action='store_true', help='Use FlashAttention2')
+parser.add_argument('--dtype', type=str, default='fp32', help='Data type for llm inference')
 parser.set_defaults(use_chunk_cache=True)
 args = parser.parse_args()
 
@@ -71,12 +105,29 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load model and tokenizer globally
 attn_implementation = "flash_attention_2" if args.use_flash_attn else None
-# model = Qwen2TurboForCausalLM.from_pretrained(
-# model = Qwen2ForCausalLM.from_pretrained(
-model = Qwen2BlockAttnForCausalLM.from_pretrained(
-    args.model_name,
-    torch_dtype=torch.bfloat16,
-    attn_implementation=attn_implementation).to(device)
+torch_dtype = torch.bfloat16 if args.dtype == "bf16" else torch.float32
+
+# # model = Qwen2TurboForCausalLM.from_pretrained(
+# # model = Qwen2ForCausalLM.from_pretrained(
+# model = Qwen2BlockAttnForCausalLM.from_pretrained(
+#     args.model_name,
+#     torch_dtype=torch.bfloat16,
+#     attn_implementation=attn_implementation).to(device)
+
+if "_w_positions" in args.storage_dir:
+    print("Use block attn.")
+    model = Qwen2BlockAttnForCausalLM.from_pretrained(
+        args.model_name, torch_dtype=torch_dtype
+    ).to(device)
+elif "_wo_positions" in args.storage_dir:
+    print("Use turbo attn.")
+    model = Qwen2TurboForCausalLM.from_pretrained(
+        args.model_name, torch_dtype=torch_dtype
+    ).to(device)
+else:  # TODO
+    model = Qwen2ForCausalLM.from_pretrained( 
+        args.model_name, torch_dtype=torch_dtype
+    ).to(device)
 tokenizer = AutoTokenizer.from_pretrained(args.model_name)
 
 # Set up embedding model and index
@@ -99,9 +150,20 @@ def load_kvcache(cache_file_path):
 
 def query_with_kvcache(query_text, use_chunk_cache=True):
     query_bundle = QueryBundle(query_str=query_text)
-    retrieved_nodes = retriever.retrieve(query_bundle)
+
+    # print("Retriever type:", type(retriever))
+
+    if os.environ.get("retrive") == "skip":
+        print("skip retrive!")
+        retrieved_nodes = parse_json_to_nodes(f"{args.storage_dir}/docstore.json")
+    else:
+        retrieved_nodes = retriever.retrieve(query_bundle)  # <class 'llama_index.core.indices.vector_store.retrievers.retriever.VectorIndexRetriever'>
+
+    # print(f"len(retrieved_nodes) = {len(retrieved_nodes)}")
+    # print(retrieved_nodes)
+
     kvcache_list = [prefix_kvcache]
-    # kvcache_list = []
+
     chunk_list = []
     prefix_ids = tokenizer.encode(PREFIX, return_tensors='pt').to(model.device)
     print(f"prefix_ids len={len(prefix_ids[0])}")
@@ -118,7 +180,7 @@ def query_with_kvcache(query_text, use_chunk_cache=True):
             chunk_token_count_list.append(len(chunk_token_count[0]))
             # chunk_token_count_list.append(stack_past_key_values([kvcache]).seen_tokens)
         chunk_list.append(node.text)
-    print(f"chunk_token_count_list = {chunk_token_count_list}, chunk sum (except prefix) = {sum(chunk_token_count_list)}")
+    print(f"chunk_token_count_list = {chunk_token_count_list}, chunk sum (with prefix) = {sum(chunk_token_count_list)}")
 
     query_ids = tokenizer.encode(query_text, return_tensors='pt').to(model.device)
     print(f"query_ids = {len(query_ids[0])}")
@@ -132,7 +194,7 @@ def query_with_kvcache(query_text, use_chunk_cache=True):
     eos_token_ids = [151645,151643]
     outputs = model.generate(
         input_ids,
-        max_new_tokens=100,
+        max_new_tokens=200,
         past_key_values=past_kvcache,
         pad_token_id=tokenizer.eos_token_id,
         # do_sample=True,
@@ -172,38 +234,38 @@ if __name__ == "__main__":
     # use_time = end - start
     # avg_time_with_composite_positions_cache = use_time / len(questions)
 
-    # # Test the average time taken for RAG with document reordered_positions KV Cache
-    # os.environ["USE_CHUNK_CACHE"] = "reordered_positions"
-    # print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
-    # results_with_reordered_kvcache = {}
-    # start = time.perf_counter()
-    # for query in questions:
-    #     results_with_reordered_kvcache[query] = query_with_kvcache(query)
-    # end = time.perf_counter()
-    # use_time = end - start
-    # avg_time_with_reordered_positions_cache = use_time / len(questions)
-    
-    # # Test the average time taken for RAG without document chunk KV Cache
-    # os.environ["USE_CHUNK_CACHE"] = "false"
-    # print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
-    # results_without_kvcache = {}
-    # start = time.perf_counter()
-    # for query in questions:
-    #     results_without_kvcache[query] = query_with_kvcache(query, use_chunk_cache=False)
-    # end = time.perf_counter()
-    # use_time_without_cache = end - start
-    # avg_time_without_cache = use_time_without_cache / len(questions)
-
-    # Test loss of reverse RoPE
-    os.environ["USE_CHUNK_CACHE"] = "test_reverse_RoPE"
+    # Test the average time taken for RAG with document reordered_positions KV Cache
+    os.environ["USE_CHUNK_CACHE"] = "reordered_positions"
     print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
-    results_without_test_kvcache = {}
+    results_with_reordered_kvcache = {}
     start = time.perf_counter()
     for query in questions:
-        results_without_test_kvcache[query] = query_with_kvcache(query, use_chunk_cache=False)
+        results_with_reordered_kvcache[query] = query_with_kvcache(query)
+    end = time.perf_counter()
+    use_time = end - start
+    avg_time_with_reordered_positions_cache = use_time / len(questions)
+    
+    # Test the average time taken for RAG without document chunk KV Cache
+    os.environ["USE_CHUNK_CACHE"] = "false"
+    print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
+    results_without_kvcache = {}
+    start = time.perf_counter()
+    for query in questions:
+        results_without_kvcache[query] = query_with_kvcache(query, use_chunk_cache=False)
     end = time.perf_counter()
     use_time_without_cache = end - start
-    avg_time_without_cache_test_reverse_RoPE = use_time_without_cache / len(questions)
+    avg_time_without_cache = use_time_without_cache / len(questions)
+
+    # # Test loss of reverse RoPE
+    # os.environ["USE_CHUNK_CACHE"] = "test_reverse_RoPE"
+    # print(f'USE_CHUNK_CACHE={os.environ["USE_CHUNK_CACHE"]}')
+    # results_without_test_kvcache = {}
+    # start = time.perf_counter()
+    # for query in questions:
+    #     results_without_test_kvcache[query] = query_with_kvcache(query, use_chunk_cache=False)
+    # end = time.perf_counter()
+    # use_time_without_cache = end - start
+    # avg_time_without_cache_test_reverse_RoPE = use_time_without_cache / len(questions)
 
     # # Prepare data for tabular output
     # results = [

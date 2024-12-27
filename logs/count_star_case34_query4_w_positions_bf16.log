@@ -1,0 +1,86 @@
+Use block attn.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  2.46it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  2.57it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  2.63it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.73it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.67it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+INFO:sentence_transformers.SentenceTransformer:2 prompts are loaded, with the keys: ['query', 'text']
+2 prompts are loaded, with the keys: ['query', 'text']
+INFO:llama_index.core.indices.loading:Loading all indices.
+Loading all indices.
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:509: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+USE_CHUNK_CACHE=reordered_positions
+skip retrive!
+prefix_ids len=88
+chunk_token_count_list = [88, 374, 309, 410, 446], chunk sum (with prefix) = 1627
+query_ids = 311
+chunk_str_ids = 1627
+input_ids = 1945
+type past_kvcache = <class 'tuple'>
+query:在这个月光皎洁、云雾缭绕的夜晚，小企鹅、小狗、小猫和小鱼正专注地望向天空，分别数着金星、太阳、月亮和海王星。你的任务是帮助他们分别收集所数天体的颗数。
+
+请按照如下格式输出结果：
+
+{
+  "小企鹅": [x, x, x, ...],
+  "小狗": [y, y, y, ...],
+  "小猫": [z, z, z, ...],
+  "小鱼": [w, w, w, ...]
+}
+
+其中：
+- [x, x, x, ...] 是小企鹅每次数金星时记录的颗数。
+- [y, y, y, ...] 是小狗每次数太阳时记录的颗数。
+- [z, z, z, ...] 是小猫每次数月亮时记录的颗数。
+- [w, w, w, ...] 是小鱼每次数海王星时记录的颗数。
+
+请特别注意，任务的核心是分别收集小企鹅、小狗、小猫和小鱼数到的金星、太阳、月亮和海王星的颗数。每一次的记录都很重要！
+
+请务必专注于这个任务，准确提取每种天体的颗数，并以 JSON 格式输出结果。不需要任何多余的说明或解释，只需专注于收集金星、太阳、月亮和海王星的颗数记录即可。
+outputs:{
+  "小企鹅": [],
+  "小狗": [117],
+  "小猫": [],
+  "小鱼": []
+}
+USE_CHUNK_CACHE=false
+skip retrive!
+prefix_ids len=88
+chunk_token_count_list = [88], chunk sum (with prefix) = 88
+query_ids = 311
+chunk_str_ids = 1627
+input_ids = 1945
+type past_kvcache = <class 'NoneType'>
+query:在这个月光皎洁、云雾缭绕的夜晚，小企鹅、小狗、小猫和小鱼正专注地望向天空，分别数着金星、太阳、月亮和海王星。你的任务是帮助他们分别收集所数天体的颗数。
+
+请按照如下格式输出结果：
+
+{
+  "小企鹅": [x, x, x, ...],
+  "小狗": [y, y, y, ...],
+  "小猫": [z, z, z, ...],
+  "小鱼": [w, w, w, ...]
+}
+
+其中：
+- [x, x, x, ...] 是小企鹅每次数金星时记录的颗数。
+- [y, y, y, ...] 是小狗每次数太阳时记录的颗数。
+- [z, z, z, ...] 是小猫每次数月亮时记录的颗数。
+- [w, w, w, ...] 是小鱼每次数海王星时记录的颗数。
+
+请特别注意，任务的核心是分别收集小企鹅、小狗、小猫和小鱼数到的金星、太阳、月亮和海王星的颗数。每一次的记录都很重要！
+
+请务必专注于这个任务，准确提取每种天体的颗数，并以 JSON 格式输出结果。不需要任何多余的说明或解释，只需专注于收集金星、太阳、月亮和海王星的颗数记录即可。
+outputs:{
+  "小企鹅": [15],
+  "小狗": [117],
+  "小猫": [42],
+  "小鱼": [69]
+}

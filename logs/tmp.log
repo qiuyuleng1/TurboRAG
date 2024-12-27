@@ -1,0 +1,99 @@
+Use block attn.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  2.27it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  2.41it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  2.48it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.63it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.55it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+INFO:sentence_transformers.SentenceTransformer:2 prompts are loaded, with the keys: ['query', 'text']
+2 prompts are loaded, with the keys: ['query', 'text']
+INFO:llama_index.core.indices.loading:Loading all indices.
+Loading all indices.
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:509: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+torch.Size([1, 88, 3584])
+USE_CHUNK_CACHE=reordered_positions
+skip retrive!
+prefix_ids len=88
+chunk_token_count_list = [88, 402, 309, 399, 434], chunk sum (with prefix) = 1632
+query_ids = 253
+chunk_str_ids = 1632
+input_ids = 1892
+type past_kvcache = <class 'tuple'>
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+torch.Size([1, 260, 3584])
+query:在这个月光皎洁、云雾缭绕的夜晚，小企鹅正望向天空，全神贯注地数金星、太阳、月亮和海王星。你的任务是帮助小企鹅分别收集它数到的金星、太阳、月亮和海王星的颗数。
+
+请按照如下格式输出结果：
+{
+  "小企鹅": {
+    "金星": [x, x, x, ...],
+   "太阳": [x, x, x, ...]
+  "月亮": [x, x, x, ...],
+    "海王星": [x, x, x, ...],
+ }
+}
+
+其中 [x, x, x, ...] 是小企鹅每次数金星、太阳、月亮和海王星时分别记录的颗数。请特别注意，任务的核心是分别收集小企鹅数到的每种天体的颗数。每一次的记录都很重要！
+
+请务必专注于小企鹅数天体的任务，准确提取每种天体的颗数，并以 JSON 格式输出结果。不需要任何多余的说明或解释，只需专注于金星、太阳、月亮和海王星的颗数记录即可。
+outputs:{
+

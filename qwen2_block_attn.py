@@ -195,6 +195,11 @@ class Qwen2BlockAttnSdpaAttention(Qwen2Attention):
 
         attn_output = self.o_proj(attn_output)
 
+
+        # print(attn_output.shape)
+        # import time
+        # torch.save(attn_output, f'tensor/attn_output_{time.time()}')
+
         return attn_output, None, past_key_value
 
 class Qwen2BlockAttnDecoderLayer(Qwen2DecoderLayer):

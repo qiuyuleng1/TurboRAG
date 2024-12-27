@@ -1,0 +1,2049 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.70it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.76it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.74it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.82it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.79it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+INFO:sentence_transformers.SentenceTransformer:2 prompts are loaded, with the keys: ['query', 'text']
+2 prompts are loaded, with the keys: ['query', 'text']
+INFO:llama_index.core.indices.loading:Loading all indices.
+Loading all indices.
+USE_CHUNK_CACHE=composite_positions
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.28it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.27it/s]
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:509: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 62, 524, 524, 426, 80, 311, 499, 524, 522], chunk sum (except prefix) = 4084
+query_ids = 11
+chunk_str_ids = 4084
+input_ids = 4101
+type past_kvcache = <class 'tuple'>
+query:Who is the music director of the Quebec Symphony Orchestra?
+outputs:Based on the information provided in the document, the music director of the Quebec Symphony Orchestra is Michael Tilson Rogers, also known as Fabien Gabel. However, the document does not explicitly state this, but it mentions that Fabien Gabel is the one who returned to the Houston Symphony as a music director, implying he has experience as a music director at other orchestras as well, including possibly the Quebec Symphony Orchestra.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  8.64it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  8.63it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 427, 313, 366, 158, 198, 425, 523, 524, 522, 283], chunk sum (except prefix) = 3827
+query_ids = 17
+chunk_str_ids = 3827
+input_ids = 3850
+type past_kvcache = <class 'tuple'>
+query:Who were the four students of the University of Port Harcourt that were allegedly murdered?
+outputs:There seems to be a misunderstanding in the question. The document mentions that four students from the University of Port Harcourt were not murdered. Instead, it states that two of the suspects in the document are former members of the British military who were killed in a separate incident. The document mentions that Lt. Col. David Parkinson and Col. Edward Loden, who were not students at the University of Port Harcourt, were murdered. The murders took place during a robbery attempt.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  9.92it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  9.89it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 522, 523, 480, 343, 86, 100, 523, 451, 170], chunk sum (except prefix) = 3810
+query_ids = 14
+chunk_str_ids = 3810
+input_ids = 3830
+type past_kvcache = <class 'tuple'>
+query:What did Paul Wall offer to all U.S. Olympic Medalists?
+outputs:Paul Wall offered to give free gold grills to all U.S. Olympic Medalists.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 78.86it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 381, 524, 524, 524, 524, 236, 524, 239, 524, 438], chunk sum (except prefix) = 4526
+query_ids = 17
+chunk_str_ids = 4526
+input_ids = 4549
+type past_kvcache = <class 'tuple'>
+query:What are the main agricultural products that African countries export to the rest of the world?
+outputs:Based on the information provided in the document, the main agricultural products that African countries export to the rest of the world include cocoa, edible fruits and nuts, coffee, tea, and vegetables.
+USE_CHUNK_CACHE=reordered_positions
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 89.77it/s]
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 62, 524, 524, 426, 80, 311, 499, 524, 522], chunk sum (except prefix) = 4084
+query_ids = 11
+chunk_str_ids = 4084
+input_ids = 4101
+type past_kvcache = <class 'tuple'>
+query:Who is the music director of the Quebec Symphony Orchestra?
+outputs:The music director of the Quebec Symphony Orchestra is Fabien Gabel, as mentioned in the text: "Fabien Gabel, music director of the Quebec Symphony Orchestra, returns to Houston to lead the Houston Symphony in Ravel’s Daphnis and Chloé." However, it should be noted that the text actually refers to the Quebec Symphony Orchestra as the "Quebec Symphony Orchestra", but the correct name is likely the "Montreal Symphony Orchestra" or "Orchestre symphonique de
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 103.04it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 427, 313, 366, 158, 198, 425, 523, 524, 522, 283], chunk sum (except prefix) = 3827
+query_ids = 17
+chunk_str_ids = 3827
+input_ids = 3850
+type past_kvcache = <class 'tuple'>
+query:Who were the four students of the University of Port Harcourt that were allegedly murdered?
+outputs:There seems to be a misunderstanding in the question. The document mentions that four students from the University of Port Harcourt were not murdered. Instead, it talks about the murder of four students from the University of Port Harcourt, which is actually the University of Port Harcourt, not the University of Port Harcourt. These four students, Chiadika Lordson, Ugonna Kelechi Obusor, Mike Lloyd Toku, and Tekena Elkanah, were allegedly murdered by the
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 17.01it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 524, 522, 523, 480, 343, 86, 100, 523, 451, 170], chunk sum (except prefix) = 3810
+query_ids = 14
+chunk_str_ids = 3810
+input_ids = 3830
+type past_kvcache = <class 'tuple'>
+query:What did Paul Wall offer to all U.S. Olympic Medalists?
+outputs:According to the passage, Paul Wall offered to give free gold grills to all U.S. Olympic Medalists. Specifically, the text states: "Paul Wall wants to give free gold grills to all U.S. Olympic Medalists."
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 102.19it/s]
+prefix_ids len=88
+chunk_token_count_list = [88, 381, 524, 524, 524, 524, 236, 524, 239, 524, 438], chunk sum (except prefix) = 4526
+query_ids = 17
+chunk_str_ids = 4526
+input_ids = 4549
+type past_kvcache = <class 'tuple'>
+query:What are the main agricultural products that African countries export to the rest of the world?
+outputs:According to the passage, African countries mainly export the following agricultural products to the rest of the world:
+
+- Cocoa
+- Edible fruit and nuts
+- Coffee 
+- Tea
+- Vegetables
+USE_CHUNK_CACHE=false
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 91.84it/s]
+prefix_ids len=88
+chunk_token_count_list = [88], chunk sum (except prefix) = 88
+query_ids = 11
+chunk_str_ids = 4084
+input_ids = 4101
+type past_kvcache = <class 'NoneType'>
+query:Who is the music director of the Quebec Symphony Orchestra?
+outputs:The document does not provide information about the current music director of the Quebec Symphony Orchestra. Therefore, I can not answer the question because of the insufficient information in documents.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 15.46it/s]
+prefix_ids len=88
+chunk_token_count_list = [88], chunk sum (except prefix) = 88
+query_ids = 17
+chunk_str_ids = 3827
+input_ids = 3850
+type past_kvcache = <class 'NoneType'>
+query:Who were the four students of the University of Port Harcourt that were allegedly murdered?
+outputs:The four students of the University of Port Harcourt that were allegedly murdered are Chiadika Lordson, Ugonna Kelechi Obusor, Mike Lloyd Toku, and Tekena Elkanah.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 105.23it/s]
+prefix_ids len=88
+chunk_token_count_list = [88], chunk sum (except prefix) = 88
+query_ids = 14
+chunk_str_ids = 3810
+input_ids = 3830
+type past_kvcache = <class 'NoneType'>
+query:What did Paul Wall offer to all U.S. Olympic Medalists?
+outputs:Paul Wall offered to give free gold grills to all U.S. Olympic Medalists.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 102.86it/s]
+prefix_ids len=88
+chunk_token_count_list = [88], chunk sum (except prefix) = 88
+query_ids = 17
+chunk_str_ids = 4526
+input_ids = 4549
+type past_kvcache = <class 'NoneType'>
+query:What are the main agricultural products that African countries export to the rest of the world?
+outputs:The main agricultural products that African countries export to the rest of the world are cocoa, edible fruit and nuts, coffee and tea, and vegetables, according to the provided documents.
+USE_CHUNK_CACHE=test_reverse_RoPE
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 14.89it/s]
+prefix_ids len=88
+chunk_token_count_list = [88], chunk sum (except prefix) = 88
+query_ids = 11
+chunk_str_ids = 4084
+input_ids = 4101
+type past_kvcache = <class 'NoneType'>
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+type k cache = torch.float32
+key_states and key_states2 are approximately equal.
+query:Who is the music director of the Quebec Symphony Orchestra?
+outputs:The document does not provide information about the current music director of the Quebec Symphony Orchestra. Therefore, I can not answer the question because of the insufficient information in documents.
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 93.38it/s]

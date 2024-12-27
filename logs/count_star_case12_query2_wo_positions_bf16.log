@@ -1,0 +1,72 @@
+Use turbo attn.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  2.30it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  2.38it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  2.49it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.63it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.55it/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+Load pretrained SentenceTransformer: BAAI/bge-small-en-v1.5
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+INFO:sentence_transformers.SentenceTransformer:2 prompts are loaded, with the keys: ['query', 'text']
+2 prompts are loaded, with the keys: ['query', 'text']
+INFO:llama_index.core.indices.loading:Loading all indices.
+Loading all indices.
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:492: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:497: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/home/intel/miniforge3/envs/turborag/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:509: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+USE_CHUNK_CACHE=composite_positions
+skip retrive!
+prefix_ids len=88
+chunk_token_count_list = [88, 402, 310, 399, 434], chunk sum (with prefix) = 1633
+query_ids = 178
+chunk_str_ids = 1633
+input_ids = 1818
+type past_kvcache = <class 'tuple'>
+query:小企鹅正在专注地数★，每一次数完都会认真记录下★的颗数。你的任务是帮助小企鹅收集这些记录。请特别注意，任务的核心是收集小企鹅每一次数到的★颗数。
+
+按照如下格式输出结果：
+
+{"小企鹅":[x,x,x,...]}
+
+其中 [x,x,x,...] 是小企鹅每一次数★时记录的颗数。请务必专注于小企鹅数★的任务，每一次的记录都很重要！ 小企鹅数★的颗数是这个任务的唯一重点，准确提取每一次记录并以 JSON 格式输出结果。
+
+请再次注意：你只需要根据小企鹅每一次数★的记录，完整地收集这些颗数，并输出 JSON 格式的结果。 不需要任何多余的说明或解释，只需专注于★颗数即可。
+outputs:{"小企鹅":[15,117,42]}
+USE_CHUNK_CACHE=reordered_positions
+skip retrive!
+prefix_ids len=88
+chunk_token_count_list = [88, 402, 310, 399, 434], chunk sum (with prefix) = 1633
+query_ids = 178
+chunk_str_ids = 1633
+input_ids = 1818
+type past_kvcache = <class 'tuple'>
+query:小企鹅正在专注地数★，每一次数完都会认真记录下★的颗数。你的任务是帮助小企鹅收集这些记录。请特别注意，任务的核心是收集小企鹅每一次数到的★颗数。
+
+按照如下格式输出结果：
+
+{"小企鹅":[x,x,x,...]}
+
+其中 [x,x,x,...] 是小企鹅每一次数★时记录的颗数。请务必专注于小企鹅数★的任务，每一次的记录都很重要！ 小企鹅数★的颗数是这个任务的唯一重点，准确提取每一次记录并以 JSON 格式输出结果。
+
+请再次注意：你只需要根据小企鹅每一次数★的记录，完整地收集这些颗数，并输出 JSON 格式的结果。 不需要任何多余的说明或解释，只需专注于★颗数即可。
+outputs:{"小企鹅":[15,117,42]}
+USE_CHUNK_CACHE=false
+skip retrive!
+prefix_ids len=88
+chunk_token_count_list = [88], chunk sum (with prefix) = 88
+query_ids = 178
+chunk_str_ids = 1633
+input_ids = 1818
+type past_kvcache = <class 'NoneType'>
+query:小企鹅正在专注地数★，每一次数完都会认真记录下★的颗数。你的任务是帮助小企鹅收集这些记录。请特别注意，任务的核心是收集小企鹅每一次数到的★颗数。
+
+按照如下格式输出结果：
+
+{"小企鹅":[x,x,x,...]}
+
+其中 [x,x,x,...] 是小企鹅每一次数★时记录的颗数。请务必专注于小企鹅数★的任务，每一次的记录都很重要！ 小企鹅数★的颗数是这个任务的唯一重点，准确提取每一次记录并以 JSON 格式输出结果。
+
+请再次注意：你只需要根据小企鹅每一次数★的记录，完整地收集这些颗数，并输出 JSON 格式的结果。 不需要任何多余的说明或解释，只需专注于★颗数即可。
+outputs:{"小企鹅":[15,117,42]}
